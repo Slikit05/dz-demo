@@ -15,6 +15,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,6 +23,8 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
 
   background-color: var(--color-bg);
   color: var(--color-primary);
