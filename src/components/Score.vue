@@ -2,7 +2,7 @@
 import Heart from '../icons/Heart.vue';
 
 const { label } = defineProps({
-  label: String
+  label: Number
 });
 </script>
 

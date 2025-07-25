@@ -2,17 +2,20 @@
 import NoIcon from "../icons/NoIcon.vue";
 import YesIcon from "../icons/YesIcon.vue";
 
+const emit = defineEmits({
+  statusChange(payload) {
+    return payload;
+  },
+});
+
 const turnOver = (event) => {
   console.log('Перевернули')
-};
-
-const status = (event) => {
-  console.log('Статут изменился')
+  emit("statusChange", "Статус изменился")
 };
 </script>
 
 <template>
-  <div class="card" @click="turnOver()" @change="status()">
+  <div class="card" @click="turnOver()">
     <div class="card__block card__block_front">
       <div class="card__wrap">
         <div class="card__up">

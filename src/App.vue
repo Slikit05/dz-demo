@@ -3,8 +3,12 @@ import Score from "./components/Score.vue";
 import Card from "./components/Card.vue";
 
 const data = {
-  label: "100",
+  label: 100,
 };
+
+const getStatus = (status) => {
+  console.log(status)
+}
 </script>
 
 <template>
@@ -15,7 +19,7 @@ const data = {
     </div>
   </header>
   <main class="main">
-    <Card />
+    <Card @status-change="getStatus"/>
   </main>
 </template>
 
