@@ -1,6 +1,15 @@
 <script setup>
+import { ref } from "vue";
 import NoIcon from "../icons/NoIcon.vue";
 import YesIcon from "../icons/YesIcon.vue";
+
+let points = ref('100');
+let cards = ref({
+  word: 'lead',
+  translation: 'свинец',
+  state: 'closed',
+  status: 'pending'
+})
 
 const emit = defineEmits({
   statusChange(payload) {
@@ -9,8 +18,12 @@ const emit = defineEmits({
 });
 
 const turnOver = (event) => {
-  console.log('Перевернули')
-  emit("statusChange", "Статус изменился")
+  if (cards.value.state === 'closed') {
+    cards.value.state = 'opened'
+  } else {
+    cards.value.state = 'closed'
+  }
+  emit("statusChange", cards.value.state)
 };
 </script>
 
@@ -23,7 +36,7 @@ const turnOver = (event) => {
           <div class="card__icon"></div>
         </div>
         <div class="card__middle">
-          <span class="card__text">unadmitted</span>
+          <span class="card__text">{{ cards.word }}</span>
         </div>
         <div class="card__bottom">
           <span class="card__state">ПЕРЕВЕНУТЬ</span>
